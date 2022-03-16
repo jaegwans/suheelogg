@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.skhu.mapper.GuestMapper">
+	<select id="findAll" resultType="net.skhu.dto.Guest">
+		<bind name="start" value="(pg - 1) * sz" />
+		SELECT * 
+		FROM guestbook 
+		ORDER BY id DESC
+		LIMIT #{start}, #{sz}
+	</select>
+	
+
+</mapper>
